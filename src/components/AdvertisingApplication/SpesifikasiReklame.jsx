@@ -1,34 +1,15 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { SelectOption } from "./AdvertisingForm";
-import { ResultContext } from "../Context/ApplicationResult";
+import { SelectOption } from "./AdvertisingApplication";
+import { useState } from "react";
 
 function SpesifikasiReklame() {
   const [showLainnya, setShowLainnya] = useState(false);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
-  const [adverType, setAdverType] = useState("");
-  const [scriptt, setScriptt] = useState("");
-  const [otherProductScript, setOtherProductScript] = useState("");
-  const [facee, setFacee] = useState("");
 
-  const result = useContext(ResultContext);
-
-  useEffect(() => {
-    result.setResult({
-      ...result.result,
-      'Jenis Reklame': adverType,
-      'Ukuran Reklame': `${length} m x ${width} m = ${length * width} m²`,
-      'Naskah': scriptt,
-      'Naskah Produk Lainnya': otherProductScript,
-      'Sisi Hadap': facee,
-    })
-  }, [adverType, length, width, scriptt, facee])
-
-
-  function handleProdukLainnya(e) {
-    e.target.value === "Produk Lainnya" ? setShowLainnya(true) : setShowLainnya(false);
-
-    setScriptt(e.target.value);
+  function handleProdukLainnya() {
+    document.getElementById("Naskah *").value === "other"
+      ? setShowLainnya(true)
+      : setShowLainnya(false);
   }
 
   const advType = {
@@ -54,13 +35,27 @@ function SpesifikasiReklame() {
     more: "Lebih dari 4 Sisi",
   };
 
+  function ProdukLainnya() {
+    return (
+      <div>
+        <label htmlFor="otherProductScript">Naskah Produk Lainnya</label>
+        <input
+          type="text"
+          className="form-input"
+          id="otherProductScript"
+          placeholder=""
+        />
+      </div>
+    );
+  }
+
   return (
     <section id="spesifikasiReklame" className="flex flex-col gap-1 mb-2">
       <h1 className="font-bold">
         C. <span className="underline">Spesifikasi Reklame</span>
       </h1>
 
-      <SelectOption option={advType} callback={(e) => setAdverType(e.target.value)}/>
+      <SelectOption option={advType} />
 
       <div>
         <label htmlFor="size">Ukuran (m &times; m) *</label>
@@ -68,10 +63,8 @@ function SpesifikasiReklame() {
           <input
             type="number"
             className="form-input"
-            // placeholder="meter"
-            placeholder="panjang"
-            min={0}
-            step={0.1}
+            placeholder="meter"
+            id="panjang"
             max={32}
             value={length}
             onInput={(e) => setLength(e.target.value)}
@@ -81,11 +74,9 @@ function SpesifikasiReklame() {
           <input
             type="number"
             className="form-input"
-            // placeholder="meter"
-            min={0}
-            step={0.1}
+            placeholder="meter"
             max={32}
-            placeholder="lebar"
+            id="lebar"
             value={width}
             onInput={(e) => setWidth(e.target.value)}
             required
@@ -101,28 +92,11 @@ function SpesifikasiReklame() {
             Luas reklame tidak boleh lebih dari 32 m&sup2;!
           </p>
         )}
-        {width * length === 0 && (
-          <p className="text-red-500 text-sm font-bold">
-            Luas reklame tidak boleh sama dengan 0 m&sup2;!
-          </p>
-        )}
       </div>
 
       <SelectOption option={script} callback={handleProdukLainnya} />
-      {showLainnya && (
-        <div>
-          <label htmlFor="otherProductScript">Naskah Produk Lainnya</label>
-          <input
-            type="text"
-            className="form-input"
-            id="otherProductScript"
-            required
-            value={otherProductScript}
-            onChange={(e) => setOtherProductScript(e.target.value)}
-          />
-        </div>
-      )}
-      <SelectOption option={face} callback={(e) => setFacee(e.target.value)}/>
+      {showLainnya && <ProdukLainnya />}
+      <SelectOption option={face} />
     </section>
   );
 }

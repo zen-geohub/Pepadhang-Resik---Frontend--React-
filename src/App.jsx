@@ -1,21 +1,17 @@
-import AdvertisingApplication from "./components/AdvertisingApplication/AdvertisingApplication";
-import Infobar from "./components/Infobar";
-import Map from "./components/Map";
-import Sidebar from "./components/Sidebar";
+import AdvertisingApplication from "./components/AdvertisingApplication/AdvertisingApplication"
+import Infobar from "./components/Infobar"
+import Map from "./components/Map"
+import Sidebar from "./components/Sidebar"
 
-
-function App() {
+function App () {
   return (
     <div className="relative flex w-screen h-screen overflow-x-hidden">
       <Sidebar />
       <Map />
-
-      
-
-      {/* <AdvertisingApplication /> */}
+      <AdvertisingApplication />
       {/* <Infobar /> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
