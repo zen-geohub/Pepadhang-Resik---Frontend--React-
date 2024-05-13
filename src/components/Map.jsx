@@ -31,7 +31,7 @@ function Map() {
   return (
     <MapContext.Provider value={map}>
       <div ref={mapContainer} className="h-screen w-full"></div>
-      <Infobar />
+      {/* <Infobar /> */}
     </MapContext.Provider>
 
     // <>

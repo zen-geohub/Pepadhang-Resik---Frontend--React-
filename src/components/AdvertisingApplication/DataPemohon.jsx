@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-
-export let dataPemohon = {}
+import { useContext, useEffect, useState } from "react";
+import { ResultContext } from "../Context/ApplicationResult";
 
 function DataPemohon() {
   const [nama, setNama] = useState("");
@@ -9,14 +8,17 @@ function DataPemohon() {
   const [NIB, setNIB] = useState("");
   const [telephoneNum, setTelephoneNum] = useState("");
 
+  const result = useContext(ResultContext);
+
   useEffect(() => {
-    dataPemohon = {
+    result.setResult({
       'Nama Pemohon': nama,
       'Alamat Pemohon': address,
       'Nama Perusahaan': companyName,
       'NIB': NIB,
-      'Nomor Telepon/WA': telephoneNum
-    }
+      'Nomor Telepon/WA': telephoneNum,
+      ...result.result,
+    })
   }, [nama, address, companyName, NIB, telephoneNum])
 
   return (
