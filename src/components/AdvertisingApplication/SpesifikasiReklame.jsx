@@ -6,6 +6,7 @@ function SpesifikasiReklame() {
   const [showLainnya, setShowLainnya] = useState(false);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
+  const [size, setSize] = useState("");
   const [adverType, setAdverType] = useState("");
   const [scriptt, setScriptt] = useState("");
   const [otherProductScript, setOtherProductScript] = useState("");
@@ -14,15 +15,20 @@ function SpesifikasiReklame() {
   const result = useContext(ResultContext);
 
   useEffect(() => {
+    if (length * width > 0 && length * width < 12) {setSize("Kecil")}
+    else if (length * width >= 12 && length * width < 24) {setSize("Sedang")}
+    else if (length * width >= 24 && length * width <= 32) {setSize("Besar")}
+
     result.setResult({
       ...result.result,
       'Jenis Reklame': adverType,
       'Ukuran Reklame': `${length} m x ${width} m = ${length * width} m²`,
+      'Kategori Ukuran': size,
       'Naskah': scriptt,
       'Naskah Produk Lainnya': otherProductScript,
       'Sisi Hadap': facee,
     })
-  }, [adverType, length, width, scriptt, facee])
+  }, [adverType, length, width, size, scriptt, otherProductScript, facee])
 
 
   function handleProdukLainnya(e) {
@@ -74,7 +80,7 @@ function SpesifikasiReklame() {
             step={0.1}
             max={32}
             value={length}
-            onInput={(e) => setLength(e.target.value)}
+            onChange={(e) => e.target.value !== "0" ? setLength(e.target.value) : alert("Panjang tidak boleh sama dengan 0!")}
             required
           />
           <p className="select-none">&times;</p>
@@ -87,7 +93,7 @@ function SpesifikasiReklame() {
             max={32}
             placeholder="lebar"
             value={width}
-            onInput={(e) => setWidth(e.target.value)}
+            onInput={(e) => e.target.value !== "0" ? setWidth(e.target.value) : alert("Lebar tidak boleh sama dengan 0!")}
             required
           />
         </div>

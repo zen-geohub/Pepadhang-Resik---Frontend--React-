@@ -12,12 +12,12 @@ function DataPemohon() {
 
   useEffect(() => {
     result.setResult({
+      ...result.result,
       'Nama Pemohon': nama,
       'Alamat Pemohon': address,
       'Nama Perusahaan': companyName,
       'NIB': NIB,
       'Nomor Telepon/WA': telephoneNum,
-      ...result.result,
     })
   }, [nama, address, companyName, NIB, telephoneNum])
 
@@ -60,6 +60,7 @@ function DataPemohon() {
           id="companyName"
           type="text"
           className="form-input"
+          placeholder="Bagi pemohon yang mengajukan KKPR untuk usaha."
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
         />

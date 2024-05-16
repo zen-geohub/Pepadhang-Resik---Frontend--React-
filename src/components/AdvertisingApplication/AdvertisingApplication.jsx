@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import AdvertisingForm from "./AdvertisingForm";
 import AdvertisingSubmit from "./AdvertisingSubmit";
 import ApplicationResult from "../Context/ApplicationResult";
-import { PDFViewer } from "@react-pdf/renderer";
 
 export const SubmitContext = React.createContext();
 

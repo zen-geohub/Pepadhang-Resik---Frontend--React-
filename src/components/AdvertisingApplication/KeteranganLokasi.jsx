@@ -6,11 +6,11 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { PiMapPinFill, PiMapPinPlusFill } from "react-icons/pi";
 
 function KeteranganLokasi() {
-  const [kemantren, setKemantren] = useState("default");
-  const [kelurahan, setKelurahan] = useState("default");
-  const [latitude, setLatitude] = useState("default");
-  const [longitude, setLongitude] = useState("default");
-  const [sudutSimpang, setSudutSimpang] = useState("default");
+  const [kemantren, setKemantren] = useState("");
+  const [kelurahan, setKelurahan] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [sudutSimpang, setSudutSimpang] = useState("");
   const [locationAddress, setLocationAddress] = useState("");
   const [persil, setPersil] = useState("");
   const [kategoriPersil, setKategoriPersil] = useState("");
@@ -54,15 +54,14 @@ function KeteranganLokasi() {
   useEffect(() => {
     result.setResult({
       ...result.result,
-      Kemantren: kemantren,
-      Kelurahan: kelurahan,
+      "Kemantren": kemantren,
+      "Kelurahan": kelurahan,
       "Koordinat Lintang": latitude,
       "Koordinat Bujur": longitude,
       "Sudut Simpang": sudutSimpang,
       "Lokasi Reklame": locationAddress,
       "Rencana Penempatan": persil,
       "Kategori Persil": kategoriPersil,
-      // ...result.result,
     });
   }, [
     kemantren,
@@ -158,8 +157,8 @@ function KeteranganLokasi() {
           <input
             id="kemantren"
             className="form-input min-h-[33.33px] pointer-events-none"
-            value={kemantren}
-            readOnly
+            defaultValue={kemantren}
+            required
           />
         </div>
         <div className="w-1/2">
@@ -167,8 +166,8 @@ function KeteranganLokasi() {
           <input
             id="kelurahan"
             className="form-input min-h-[33.33px] pointer-events-none"
-            value={kelurahan}
-            readOnly
+            defaultValue={kelurahan}
+            required
           />
         </div>
       </div>
@@ -179,8 +178,8 @@ function KeteranganLokasi() {
           <input
             id="latitude"
             className="form-input min-h-[33.33px] pointer-events-none"
-            value={latitude}
-            readOnly
+            defaultValue={latitude}
+            required
           />
         </div>
         <div className="w-1/2">
@@ -188,8 +187,8 @@ function KeteranganLokasi() {
           <input
             id="longitude"
             className="form-input min-h-[33.33px] pointer-events-none"
-            value={longitude}
-            readOnly
+            defaultValue={longitude}
+            required
           />
         </div>
       </div>
@@ -199,8 +198,8 @@ function KeteranganLokasi() {
         <input
           id="sudutSimpang"
           className="form-input min-h-[33.33px] pointer-events-none"
-          value={sudutSimpang}
-          readOnly
+          defaultValue={sudutSimpang}
+          // required
         />
       </div>
 
