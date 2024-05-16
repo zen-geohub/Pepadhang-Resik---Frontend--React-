@@ -76,9 +76,9 @@ function AdvertisingForm() {
         <footer className="sticky bottom-0 py-2 w-full"></footer>
       </div>
 
-      <PDFViewer className="w-full h-full">
+      {/* <PDFViewer className="w-full h-full">
         <PdfVanilla result={result.result} />
-      </PDFViewer>
+      </PDFViewer> */}
     </Modal>
   );
 }
