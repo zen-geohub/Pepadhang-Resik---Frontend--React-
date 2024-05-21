@@ -1,16 +1,16 @@
 import AdvertisingApplication from "./components/AdvertisingApplication/AdvertisingApplication";
+import MapContext from "./components/Context/MapContext";
 import Infobar from "./components/Infobar";
 import Map from "./components/Map";
 import Sidebar from "./components/Sidebar";
 
-
 function App() {
   return (
     <div className="relative flex w-screen h-screen overflow-x-hidden">
-      <Sidebar />
-      <Map />
-
-      
+      <MapContext>
+        <Sidebar />
+        <Map />
+      </MapContext>
 
       {/* <AdvertisingApplication /> */}
       {/* <Infobar /> */}

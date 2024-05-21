@@ -6,6 +6,15 @@
   .btn-sidebar {
     @apply flex items-center gap-2 rounded-md px-2 py-2 hover:bg-white hover:text-black transition-all duration-150;
   }
+  .btn-sidebar-active {
+    @apply flex items-center gap-2 rounded-md px-2 py-2 bg-white text-black transition-all duration-150;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-700;
+  }
+  .btn-secondary {
+    @apply bg-gray-500 text-white font-bold px-4 py-2 rounded-md hover:bg-gray-700;
+  }
   .form-input {
     @apply border-[1px] border-[#7e7e7e] rounded p-1 w-full
   }

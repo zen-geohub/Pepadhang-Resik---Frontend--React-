@@ -22,7 +22,7 @@ function AdvertisingSubmit() {
   }
 
   function handleModalClose() {
-    modal.setShowModal(false);
+    modal.setShowModalApplication(false);
   }
 
   function handleBack() {
@@ -32,7 +32,7 @@ function AdvertisingSubmit() {
   return (
     <ApplicationResult>
       <Modal>
-        <div className="w-1/2 h-fit bg-white rounded-lg px-2 overflow-auto">
+        <div className="w-1/2 min-h-fit max-h-[5/6] bg-white rounded-lg px-2 overflow-scroll">
           <header className="sticky top-0 py-2 w-full flex justify-center text-lg font-bold bg-white">
             <button onClick={handleBack} className="absolute top-2 left-0 flex items-center gap-2">
               <HiArrowLeft />
@@ -101,7 +101,7 @@ function AdvertisingSubmit() {
             </PDFDownloadLink>
           </main>
 
-          <footer className="sticky bottom-0 py-2 w-full"></footer>
+          {/* <footer className="sticky bottom-0 py-2 w-full"></footer> */}
         </div>
       </Modal>
     </ApplicationResult>

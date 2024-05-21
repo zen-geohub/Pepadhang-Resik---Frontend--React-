@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   HiHome,
   HiFilter,
@@ -7,25 +7,32 @@ import {
 } from "react-icons/hi";
 import AdvertisingApplication from "./AdvertisingApplication/AdvertisingApplication";
 import Modal from "./Modal";
+import Filter from "./Visualizer/Filter";
+import { mapContext } from "./Context/MapContext";
+import Guide from "./Guide";
 
 export const ModalContext = React.createContext();
 
 function Sidebar() {
-  const [test, setTest] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const filter = useContext(mapContext)
+  const [showGuide, setShowGuide] = useState(false);
+  const [showModalApplication, setShowModalApplication] = useState(false);
 
-  function testt() {
-    console.log(test);
-    setTest("test");
+  function handleFilterClick() {
+    filter.setShowFilter(!filter.showFilter);
+  }
+
+  function handleGuideClick() {
+    setShowGuide(!showGuide);
   }
 
   function handleModal() {
-    setShowModal(!showModal);
+    setShowModalApplication(!showModalApplication);
   }
 
   return (
     <>
-      <aside className="flex flex-col justify-between p-2 bg-primary-color h-screen w-fit text-white">
+      <aside className="flex flex-col justify-between z-20 p-2 bg-primary-color h-screen w-fit text-white">
         <div className="flex flex-col gap-4">
           <button className="btn-sidebar">
             <span>
@@ -34,7 +41,7 @@ function Sidebar() {
             <span>Home</span>
           </button>
 
-          <button className="btn-sidebar">
+          <button onClick={handleFilterClick} className={filter.showFilter ? "btn-sidebar-active" : "btn-sidebar"}>
             <span>
               <HiFilter className="text-2xl" />
             </span>
@@ -53,16 +60,19 @@ function Sidebar() {
           </button>
         </div>
 
-        <button className="btn-sidebar">
+        <button onClick={handleGuideClick} className="btn-sidebar">
           <span>
             <HiQuestionMarkCircle className="text-2xl" />
           </span>
           <span>Panduan</span>
         </button>
       </aside>
-      <ModalContext.Provider value={{ showModal, setShowModal }}>
-        {showModal && <AdvertisingApplication />}
+      <ModalContext.Provider value={{ showModalApplication, setShowModalApplication, showGuide, setShowGuide }}>
+        {showModalApplication && <AdvertisingApplication />}
+        {showGuide && <Guide />}
       </ModalContext.Provider>
+      
+      {/* <Filter filterState={showFilter}/> */}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import DataPemohon from "./DataPemohon";
-import KeteranganLokasi from "./KeteranganLokasi";
-import SpesifikasiReklame from "./SpesifikasiReklame";
+import DataPemohon from "./FormData/DataPemohon";
+import KeteranganLokasi from "./FormData/KeteranganLokasi";
+import SpesifikasiReklame from "./FormData/SpesifikasiReklame";
 import Modal from "../Modal";
 import { HiX } from "react-icons/hi";
 import { ModalContext } from "../Sidebar";
@@ -9,7 +9,7 @@ import { ResultContext } from "../Context/ApplicationResult";
 import { SubmitContext } from "./AdvertisingApplication";
 import { PDFViewer } from "@react-pdf/renderer";
 import PdfVanilla from "./PDF/template/PdfVanilla";
-import DokumenPersyaratan from "./DokumenPersyaratan";
+import DokumenPersyaratan from "./FormData/DokumenPersyaratan";
 
 export function SelectOption({ option, callback }) {
   return (
@@ -41,7 +41,7 @@ function AdvertisingForm() {
   const submit = useContext(SubmitContext);
 
   function handleModalClose() {
-    modal.setShowModal(false);
+    modal.setShowModalApplication(false);
   }
 
   function handleSubmit(e) {
