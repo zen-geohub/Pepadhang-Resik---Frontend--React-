@@ -20,13 +20,7 @@ function Filter({filterState, map}) {
     getFilter('ukuran', filterUkuran)
     getFilter('jenis_rklm', filterJenisReklame)
     getFilter('naskah', filterNaskah)
-    // if (filterUkuran !== '') {
-    //   filter.setFilterCriteria([...filter.filterCriteria, ['==', ['get', 'ukuran'], filterUkuran]]);
-    // } else if (filterJenisReklame !== '') {
-    //   filter.setFilterCriteria([...filter.filterCriteria, ['==', ['get', 'jenis_rklm'], filterJenisReklame]]);
-    // } else if (filterNaskah !== '') {
-    //   filter.setFilterCriteria([...filter.filterCriteria, ['==', ['get', 'naskah'], filterNaskah]]);
-    // }
+    
     map.setFilter('reklamePoint', ['all', ...filter.filterCriteria])
   }
 

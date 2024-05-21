@@ -24,15 +24,15 @@ function KeteranganLokasi() {
   const [zonaKhusus, setZonaKhusus] = useState()
   useEffect(() => {
     (async function addPrequisite() {
-      const responseSimpang = await fetch(`${import.meta.env.VITE_BACKEND_DEV}/getSimpang`, {method: 'GET'})
+      const responseSimpang = await fetch(`${import.meta.env.VITE_BACKEND}/getSimpang`, {method: 'GET'})
       const dataSimpang = await responseSimpang.json()
       setSimpang(turfHelpers.multiPolygon(dataSimpang[0].simpang.geometry.coordinates))
 
-      const responseClearArea = await fetch(`${import.meta.env.VITE_BACKEND_DEV}/getClearArea`, {method: 'GET'})
+      const responseClearArea = await fetch(`${import.meta.env.VITE_BACKEND}/getClearArea`, {method: 'GET'})
       const dataClearArea = await responseClearArea.json()
       setClearArea(turfHelpers.multiPolygon(dataClearArea[0].cleararea.geometry.coordinates))
       
-      const responseZonaKhusus = await fetch(`${import.meta.env.VITE_BACKEND_DEV}/getZonaKhusus`, {method: 'GET'})
+      const responseZonaKhusus = await fetch(`${import.meta.env.VITE_BACKEND}/getZonaKhusus`, {method: 'GET'})
       const dataZonaKhusus = await responseZonaKhusus.json()
       setZonaKhusus(turfHelpers.multiPolygon(dataZonaKhusus[0].zonakhusus.geometry.coordinates))
     })()

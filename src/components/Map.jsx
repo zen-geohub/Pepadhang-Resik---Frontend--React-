@@ -4,10 +4,8 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { mapContext } from "./Context/MapContext";
 import Infobar from "./Infobar";
 import { reklamePointLayer, reklamePointSource } from "./Visualizer/spatialData";
-import {reklameOnClick, reklameOnHover } from "./Visualizer/reklameOnClick";
+import { reklameOnHover } from "./Visualizer/reklameOnClick";
 import Filter from "./Visualizer/Filter";
-
-// export const MapContext = React.createContext();
 
 function Map() {
   const mapContainer = useRef(null);
@@ -28,11 +26,6 @@ function Map() {
     });
     
     map.current.addControl(new maplibregl.NavigationControl(), "bottom-left");
-    // setMapInstance(map.current);
-
-    // map.current.on('click', function(e) {
-      //   console.log(e.lngLat);
-      // })
 
     map.current.on('load', function() {
       map.current.addSource('reklamePoint', reklamePointSource)
@@ -76,13 +69,6 @@ function Map() {
         })
 
         setSelectedFeature(e.features[0].id)
-        
-        // map.current.setFeatureState({
-        //   source: 'reklamePoint',
-        //   sourceLayer: '2023_reklame_gdb',
-        //   id: e.features[0].id
-        // }, {click: true})
-      
       })
     })
     reklameOnHover(map.current)
@@ -108,31 +94,13 @@ function Map() {
     hightlightFeature(selectedFeature, true);
   }, [selectedFeature, previousFeature]);
 
-  // useEffect(() => {
-  //   map.current.setFilter('reklamePoint', ['all', data.filterCriteria])
-  // }, [data.filterCriteria])
-  
   return (
-    // <MapContext.Provider value={map}>
-    //   <div ref={mapContainer} className="h-screen w-full"></div>
-    //   <Infobar />
-    // </MapContext.Provider>
-    // <MapContext>
-    //   <div ref={mapContainer} className="h-screen w-full"></div>
-    //   <Infobar />
-
-    // </MapContext>
     <>
       <div ref={mapContainer} className="h-screen w-full"></div>
       <Infobar />
       <Filter filterState={data.showFilter} map={map.current}/>
     </>
-    // <>
-    //   <div ref={mapContainer} className="h-screen w-full"></div>
-    //   <button onClick={testMe}>Clickme</button>
-    // </>
   );
 }
 
-// export { map }
 export default Map;

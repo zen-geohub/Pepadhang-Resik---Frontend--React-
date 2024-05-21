@@ -112,7 +112,7 @@ function PdfVanilla({ result }) {
         <FormData label="6) Lokasi Reklame" value={result["Lokasi Reklame"]} />
         <FormData label="7) Rencana Penempatan" value={result["Rencana Penempatan"]} />
         <FormData label="8) Kategori Persil" value={result["Kategori Persil"]} />
-        <FormData label="9) Denah Lokasi" value={"Coming soon"} />
+        {/* <FormData label="9) Denah Lokasi" value={"Coming soon"} /> */}
 
         <View style={{display: "flex", flexDirection: "row", backgroundColor: "#C8C8C8"}}>
           <Text style={styles.text}>C.</Text>
@@ -122,35 +122,19 @@ function PdfVanilla({ result }) {
         <FormData label="2) Ukuran Reklame" value={result["Ukuran Reklame"]} />
         <FormData label="3) Kategori Ukuran" value={result["Kategori Ukuran"]} />
         <FormData label="4) Sisi Hadap" value={result["Sisi Hadap"]} />
-        <FormData label="5) Foto" value={"Coming soon"} />
-        <FormData label="6) Naskah" value={result["Naskah"]} />
-        {result["Naskah Produk Lainnya"] !== "" ? <FormData label="7) Naskah Produk Lainnya" value={result["Naskah Produk Lainnya"]} /> : null}
+        {/* <FormData label="5) Foto" value={"Coming soon"} /> */}
+        <FormData label="5) Naskah" value={result["Naskah"]} />
+        {result["Naskah Produk Lainnya"] !== "" ? <FormData label="6) Naskah Produk Lainnya" value={result["Naskah Produk Lainnya"]} /> : null}
 
         <View style={{display: "flex", flexDirection: "row", backgroundColor: "#C8C8C8"}}>
           <Text style={styles.text}>D.</Text>
           <Text style={[styles.text, {textDecoration: "underline"}]}>Kesimpulan</Text>
         </View>
-        <FormData label="1) Pola pemanfaatan ruang" value={"Coming soon"} />
-        <FormData label="2) Ketentuan Zonasi" value={"Coming soon"} />
-        <FormData label="3) Ketentuan Lainnya" value={"Coming soon"} />
+        {/* <FormData label="1) Pola pemanfaatan ruang" value={"Coming soon"} /> */}
+        {/* <FormData label="2) Ketentuan Zonasi" value={"Coming soon"} /> */}
+        {/* <FormData label="3) Ketentuan Lainnya" value={"Coming soon"} /> */}
         <hr></hr>
-        {/* <View style={{marginLeft: 14, display: "flex", flexDirection: "row" }}>
-          <Text style={[styles.text, { width: "3%" }]}>1)</Text>
-          <Text style={[styles.text, { width: "30%" }]}>Nama</Text>
-          <Text style={styles.text}>:</Text>
-          <Text style={[styles.text, { width: "67%" }]}>
-            {result["Nama Pemohon"]}
-          </Text>
-        </View>
-
-        <View style={{marginLeft: 14, display: "flex", flexDirection: "row" }}>
-          <Text style={[styles.text, { width: "3%" }]}>2)</Text>
-          <Text style={[styles.text, { width: "30%" }]}>Alamat</Text>
-          <Text style={styles.text}>:</Text>
-          <Text style={[styles.text, { width: "67%" }]}>
-            {result["Alamat Pemohon"]}
-          </Text>
-        </View> */}
+        
         {/* {Object.entries(result).map(([key, value], index) => {
           return (
             <View key={index}>

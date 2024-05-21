@@ -6,8 +6,6 @@ import {
   HiQuestionMarkCircle,
 } from "react-icons/hi";
 import AdvertisingApplication from "./AdvertisingApplication/AdvertisingApplication";
-import Modal from "./Modal";
-import Filter from "./Visualizer/Filter";
 import { mapContext } from "./Context/MapContext";
 import Guide from "./Guide";
 
@@ -71,8 +69,6 @@ function Sidebar() {
         {showModalApplication && <AdvertisingApplication />}
         {showGuide && <Guide />}
       </ModalContext.Provider>
-      
-      {/* <Filter filterState={showFilter}/> */}
     </>
   );
 }
