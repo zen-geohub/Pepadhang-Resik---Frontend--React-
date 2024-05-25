@@ -8,7 +8,7 @@ function Filter({filterState, map}) {
   const [filterJenisReklame, setFilterJenisReklame] = useState("")
   const [filterNaskah, setFilterNaskah] = useState("")
 
-  function handleSubmitFilter() {
+  function handleApplyFilter() {
     filter.setFilterCriteria([])
     
     function getFilter(property, value) {
@@ -32,21 +32,21 @@ function Filter({filterState, map}) {
     filter.setFilterCriteria([])
   }
 
-  const show = "bg-white w-48 h-fit absolute top-1 left-0 transition-transform duration-300 translate-x-40  z-10 p-2 rounded-md flex flex-col"
-  const hidden = "bg-white w-48 h-fit absolute top-1 left-0 transition-transform duration-300 -translate-x-40 z-10 p-2 rounded-md flex flex-col"
+  const show = "bg-white w-36 h-fit absolute top-1 left-0 text-sm transition-transform duration-300 translate-x-40  z-10 p-2 rounded-md flex flex-col"
+  const hidden = "bg-white w-36 h-fit absolute top-1 left-0 text-sm transition-transform duration-300 -translate-x-48 z-10 p-2 rounded-md flex flex-col"
 
   return (
     <div className={filterState ? show : hidden}>
       <label htmlFor="ukuran"><strong>Ukuran</strong></label>
       <select id="ukuran" className="form-input" onChange={(e) => setFilterUkuran(e.target.value)}>
-        <option defaultValue={""} hidden></option>
+        <option defaultValue={""}></option>
         <option value="Sedang">Sedang</option>
         <option value="Besar">Besar</option>
       </select>
 
       <label htmlFor="jenisReklame"><strong>Jenis Reklame</strong></label>
       <select id="jenisReklame" className="form-input" onChange={(e) => setFilterJenisReklame(e.target.value)}>
-        <option defaultValue={""} hidden></option>
+        <option defaultValue={""}></option>
         <option value="Billboard">Billboard</option>
         <option value="Huruf Timbul">Huruf Timbul</option>
         <option value="Reklame Huruf">Reklame Huruf</option>
@@ -56,7 +56,7 @@ function Filter({filterState, map}) {
 
       <label htmlFor="naskah"><strong>Naskah</strong></label>
       <select id="naskah" className="form-input" onChange={(e) => setFilterNaskah(e.target.value)}>
-        <option defaultValue={""} hidden></option>
+        <option defaultValue={""}></option>
         <option value="Kosong">Kosong</option>
         <option value="Non Usaha">Non Usaha</option>
         <option value="Usaha">Usaha</option>
@@ -64,7 +64,7 @@ function Filter({filterState, map}) {
       </select>
 
       <div className="flex gap-2 mt-2">
-        <button onClick={handleSubmitFilter} className="btn-primary w-full">Submit</button>
+        <button onClick={handleApplyFilter} className="btn-primary w-full">Terapkan</button>
         {/* <button onClick={handleResetFilter} className="btn-secondary w-[40%]">Reset</button> */}
       </div>
     </div>

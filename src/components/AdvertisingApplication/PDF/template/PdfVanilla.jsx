@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 12,
     textAlign: "justify",
-    // lineHeight: "1.6 ",
+    lineHeight: "1.2",
   },
 });
 
@@ -51,6 +51,27 @@ const listDasarHukum = [
   "Peraturan Walikota Yogyakarta Nomor 32 Tahun 2023 Tentang Peraturan Pelaksanaan Peraturan Daerah Kota Yogyakarta Nomor 6 Tahun 2022 Tentang Reklame",
   "Telaah Dinas Pertanahan dan Tata Ruang Kota Yogyakarta Nomor 305 / TKKPRR / DPTR / II / 2024 Tanggal 22 Februari 2024",
 ];
+
+const ketentuanTeknis = [
+  "Ketinggian bidang reklame terbawah minimal 5 (lima) meter dari permukaan tanah;",
+  "Zona Khusus, yaitu zona yang tidak diperbolehkan penyelenggaraan reklame, kecuali untuk jenis Reklame Papan Nama Usaha/Profesi yang melekat di bangunan dan/atau Reklame Insidental;",
+  "Naskah reklame di atas gedung merupakan nama usaha yang berada pada gedung tempat diselenggaraknnya usaha bersangkutan;",
+  "Reklame yang melekat/menempel pada bangunan harus memenuhi syarat paling besar 40% dari keluasan fasad;",
+  "Penempatan bidang reklame di atas gedung tidak melampaui fasad bangunan;",
+  "Penempatan reklame pada sudut simpang jalan berlaku ketentuan sesuai dengan fungsi jalan yang membentuk simpang;",
+  "Jarak antar titik Reklame Besar dan/atau Reklame Sedang ditetapkan minimal 50 (lima puluh) meter;",
+  "Penentuan titik awal jarak penempatan reklame diambil dari batas terluar radius sudut simpang sesuai dengan ketentuan pada sudut simpang tersebut;",
+  "Penempatan reklame produk rokok dilarang diselenggarakan: (1) di jalan utama atau jalan protokol, (2) melintang atau memotong jalan, (3) radius 75 meter dari fasilitas sosial/fasilitas umum;",
+  "Penempatan reklame di Zona Kendali Ketat harus membujur atau searah jalan kecuali reklame yang berada di sudut simpang jalan;",
+  "Menggunakan ornamen, desain, atau naskah reklame yang mengandung nilai-nilai keistimewaan Yogyakarta pada reklame di Zona Khusus atau Zona Kendali Ketat."
+];
+
+const ketentuanLainnya = [
+  "Kesesuaian Kegiatan Pemanfaatan Ruang (KKPR) BUKANLAH IZIN, namun dokumen yang berisikan informasi tentang ketentuan tata ruang pada lokasi yang dimaksud sesuai dengan ketentuan peraturan yang berlaku;",
+  "Dalam hal Kesesuaian Kegiatan Pemanfaatan Ruang (KKPR) dipergunakan untuk pengajuan Persetujuan Bangunan Gedung (PBG) Konstruksi Reklame, apabila diperlukan persyaratan lain berdasarkan aturan lain yang terkait, maka pemohon wajib mengikuti aturan tersebut;",
+  "Apabila terjadi perubahan peraturan, maka informasi ketentuan tata ruang ini dinyatakan tidak berlaku;",
+  "Apabila ada kekeliruan maka informasi ketentuan tata ruang ini dapat ditinjau ulang."
+]
 
 function FormData({ label, value }) {
   return (
@@ -133,7 +154,6 @@ function PdfVanilla({ result }) {
         {/* <FormData label="1) Pola pemanfaatan ruang" value={"Coming soon"} /> */}
         {/* <FormData label="2) Ketentuan Zonasi" value={"Coming soon"} /> */}
         {/* <FormData label="3) Ketentuan Lainnya" value={"Coming soon"} /> */}
-        <hr></hr>
         
         {/* {Object.entries(result).map(([key, value], index) => {
           return (
@@ -154,24 +174,220 @@ function PdfVanilla({ result }) {
             );
           })}
         </View> */}
+        {/* <View style={styles.section}>
+          <Text style={styles.text}>Ketentuan Teknis</Text>
+          {ketentuanTeknis.map((item, index) => {
+            return (
+              <View key={index} style={{ display: "flex", flexDirection: "row" }}>
+                <Text style={styles.text}>{index + 1})</Text>
+                <Text style={styles.text}>{item}</Text>
+              </View>
+            );
+          })}
+        </View> */}
 
-        <View style={{ display: "flex", flexDirection: "row" }}>
-          <Text style={styles.text}>1)</Text>
-          <Text style={styles.text}>
-            Informasi Ketentuan Tata Ruang BUKAN MERUPAKAN IZIN, namun dokumen yang berisikan informasi tentang ketentuan tata ruang pada lokasi yang dimaksud sesuai dengan ketentuan peraturan yang berlaku;
-          </Text>
+        <View style={styles.section}>
+          {/* head */}
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Text style={styles.text}>1.</Text>
+            <Text style={styles.text}>Ketentuan Teknis</Text>
+          </View>
+          
+          {/* content */}
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+            <Text style={styles.text}>a.</Text>
+            <Text style={styles.text}>Setiap penyelenggaraan reklame wajib mendapatkan izin;</Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+            <Text style={styles.text}>b.</Text>
+            <Text style={styles.text}>Kegiatan yang dimohonkan berada pada Zona di Wilayah SWP (Kemantren {result["Kemantren"]});</Text>
+          </View>
+          
+          {/* content with sub-content */}
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+            <Text style={styles.text}>c.</Text>
+            <Text style={styles.text}>
+              Kegiatan yang dimohonkan agar disesuaikan dengan ketentuan Peraturan Daerah Kota Yogyakarta Nomor 6 Tahun 2022 tentang Reklame dan
+              Peraturan Walikota Yogyakarta Nomor 32 Tahun 2023 Tentang Peraturan Pelaksanaan Peraturan Daerah Kota Yogyakarta Nomor 6 Tahun 2022 Tentang Reklame.
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.1.</Text>
+            <Text style={styles.text}>
+              Penempatan reklame produk rokok dilarang melintang atau memotong jalan;
+            </Text>
+          </View>
+
+          {/* sub-content with sub-sub-content */}
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.2.</Text>
+            <Text style={styles.text}>
+              Reklame papan/billboard harus memenuhi persyaratan sebagai berikut:
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Bidang reklame dapat menjorok di atas trotoar dan/atau taman, dengan batas maksimal sampai sisi terdalam trotoar
+              dan/atau taman, dengan ketinggian bidang reklame terbawah minimal 5 (lima) meter dari permukaan tanah;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Material berupa plat besi dengan konstruksi pipa/frame baja;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Langgam sesuai dengan konsep setiap toko/bangunan diselaraskan dengan nilai-nilai keistimewaan Yogyakarta;
+            </Text>
+          </View>
+          {/* ---------------------------------------------------- */}
+
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.3.</Text>
+            <Text style={styles.text}>
+            Penyelenggaraan reklame pada tanah persil Pemerintah, Pemerintah Daerah dan/atau fasilitas umum untuk reklame papan/billboard dan 
+            reklame videotron berlaku ketentuan pemanfaatan ruang milik Pemerintah/Pemerintah Daerah;
+            </Text>
+          </View>
+
+          {/* sub-content with sub-sub-content */}
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.4.</Text>
+            <Text style={styles.text}>
+              Penyelenggaraan reklame pada tanah persil Pemerintah, Pemerintah Daerah dan/atau fasilitas umum untuk 
+              reklame papan/billboard dan reklame videotron dapat ditempatkan di sisi terluar trotoar, dengan ketentuan:
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Lebar trotoar minimal 1 (satu) meter;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Ditempatkan di luar bahu jalan atau trotoar dengan jarak minimal  1 (satu) meter dari tepi paling luar bahu jalan atau trotoar;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Dalam hal tidak terdapat ruang di luar bahu jalan, trotoar, atau  jalur lalu lintas, maka dapat ditempatkan di sisi terluar ruang  milik jalan;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Ketinggian bidang Reklame terbawah minimal 5 (lima) meter dari trotoar;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Tidak mengganggu fungsi utilitas umum;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Mendapatkan rekomendasi teknis dari Perangkat Daerah yang  menyelenggarakan urusan pemerintahan di bidang jalan.
+            </Text>
+          </View>
+          {/* ---------------------------------------------------- */}
+
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.5.</Text>
+            <Text style={styles.text}>
+              Dalam hal bidang Reklame menjorok di atas trotoar dan/atau taman, berlaku ketentuan pemanfaatan ruang milik Pemerintah/Pemerintah Daerah;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.6.</Text>
+            <Text style={styles.text}>
+              Jarak antar titik Reklame Besar dan/atau Reklame Sedang ditetapkan minimal 50 (lima puluh) meter, diukur dari jarak titik tiang dalam satu ruas jalan yang sama di luar titik Reklame pada sudut simpang;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.7.</Text>
+            <Text style={styles.text}>
+              Penentuan titik awal jarak penempatan Reklame diambil dari batas terluar radius sudut simpang sesuai dengan ketentuan pada sudut simpang;
+            </Text>
+          </View>
+          
+          {/* sub-content with sub-sub-content */}
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.8.</Text>
+            <Text style={styles.text}>
+              Titik lokasi permohonan berada pada zona kendali ketat sehingga berlaku ketentuan sebagai berikut:
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Penyelenggaraan Reklame wajib mengikuti ketentuan pengaturan pada kawasan cagar budaya;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Penempatan Reklame Besar dan/atau Reklame Sedang membujur atau searah jalan kecuali Reklame Besar dan/atau Reklame Sedang yang berada di sudut simpang jalan;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Reklame Besar dan/atau Reklame Sedang yang berada di sudut simpang jalan sebagaimana dimaksud pada poin ke 2 (dua) dapat ditempatkan secara menyerong sesuai orientasi sudut simpang;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 60 }}>
+            <Text style={styles.text}>-</Text>
+            <Text style={styles.text}>
+              Reklame Besar dan/atau Reklame Sedang yang menggunakan tiang wajib menggunakan ornamen, desain dan naskah yang mencitrakan nilai-nilai keistimewaan Yogyakarta;
+            </Text>
+          </View>
+          {/* ---------------------------------------------------- */}
+
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 40 }}>
+            <Text style={styles.text}>c.9.</Text>
+            <Text style={styles.text}>
+              Penyelenggara reklame wajib memenuhi etika, estetika, standar teknis bangunan, keselamatan masyarakat  dan nilai keistimewaan Yogyakarta;
+            </Text>
+          </View>
+          {/* ///////////////////////////////////////////////////// */}
+          
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+            <Text style={styles.text}>d.</Text>
+            <Text style={styles.text}>
+              Terkait dengan ketentuan teknis lainnya menyangkut lokasi reklame, ukuran, pemasangan, larangan, dan ketentuan lainnya menyesuaikan dengan peraturan perundangan daerah yang berlaku khususnya tentang penyelenggaraan reklame dan peraturan pelaksanaannya;
+            </Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+            <Text style={styles.text}>d.</Text>
+            <Text style={styles.text}>
+              Telaah teknis ini digunakan untuk menerbitkan rekomendasi KKPR sebagai syarat pengajuan PBG dan/atau izin penyelenggaraan reklame, bukan untuk legalitas operasional kegiatan reklame (iklan).
+            </Text>
+          </View>
+
         </View>
-        <View style={{ display: "flex", flexDirection: "row" }}>
-          <Text style={styles.text}>2)</Text>
-          <Text style={styles.text}>
-            Apabila terjadi perubahan peraturan, maka informasi ketentuan tata ruang ini dinyatakan tidak berlaku;
-          </Text>
-        </View>
-        <View style={{ display: "flex", flexDirection: "row" }}>
-          <Text style={styles.text}>3)</Text>
-          <Text style={styles.text}>
-            Apabila ada kekeliruan maka informasi ketentuan tata ruang ini dapat ditinjau ulang.
-          </Text>
+
+        <View style={styles.section}>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Text style={styles.text}>2.</Text>
+            <Text style={styles.text}>Ketentuan Lainnya</Text>
+          </View>
+          {ketentuanLainnya.map((item, index) => {
+            return (
+              <View key={index} style={{ display: "flex", flexDirection: "row", marginLeft: 20 }}>
+                <Text style={styles.text}>{index + 1})</Text>
+                <Text style={styles.text}>{item}</Text>
+              </View>
+            );
+          })}
         </View>
       </Page>
     </Document>

@@ -6,6 +6,7 @@ import Infobar from "./Infobar";
 import { reklamePointLayer, reklamePointSource } from "./Visualizer/spatialData";
 import { reklameOnHover } from "./Visualizer/reklameOnClick";
 import Filter from "./Visualizer/Filter";
+import Legend from "./Visualizer/Legend";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -21,17 +22,23 @@ function Map() {
       container: mapContainer.current,
       style: `https://api.maptiler.com/maps/c49db9ce-72e8-40d7-a607-bd92026c6796/style.json?${import.meta.env.VITE_BASEMAPKEY}`,
       center: [110.3647275, -7.801408],
-      zoom: 14,
+      zoom: 13,
       attributionControl: false,
     });
     
     map.current.addControl(new maplibregl.NavigationControl(), "bottom-left");
 
+    
+    
+  }, []);
+
+  useEffect(() => {
     map.current.on('load', function() {
       map.current.addSource('reklamePoint', reklamePointSource)
       map.current.addLayer(reklamePointLayer)
 
       map.current.on('click', 'reklamePoint', function(e) {
+        map.current.flyTo({center: e.features[0].geometry.coordinates, zoom: 18})
         
         data.setReklameIsClicked(true)
 
@@ -72,8 +79,7 @@ function Map() {
       })
     })
     reklameOnHover(map.current)
-    
-  }, []);
+  }, [])
 
   useEffect(() => {
     const hightlightFeature = (featureId, clickState) => {
@@ -96,7 +102,10 @@ function Map() {
 
   return (
     <>
-      <div ref={mapContainer} className="h-screen w-full"></div>
+      <div ref={mapContainer} className="h-screen w-full z-0">
+        <Legend />
+
+      </div>
       <Infobar />
       <Filter filterState={data.showFilter} map={map.current}/>
     </>

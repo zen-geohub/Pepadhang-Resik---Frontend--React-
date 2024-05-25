@@ -32,7 +32,7 @@ function AdvertisingSubmit() {
   return (
     <ApplicationResult>
       <Modal>
-        <div className="w-1/2 min-h-fit max-h-[5/6] bg-white rounded-lg px-2 overflow-scroll">
+        <div className="w-1/2 min-h-fit max-h-[500px] bg-white rounded-lg px-2">
           <header className="sticky top-0 py-2 w-full flex justify-center text-lg font-bold bg-white">
             <button onClick={handleBack} className="absolute top-2 left-0 flex items-center gap-2">
               <HiArrowLeft />
@@ -41,7 +41,7 @@ function AdvertisingSubmit() {
             <span>Data Reklame Diajukan</span>
           </header>
 
-          <main>
+          <main className="h-[400px] overflow-auto">
             <table>
               <tbody>
                 <tr className="font-bold">A. <span className="underline">Data Pemohon</span></tr>
@@ -89,19 +89,21 @@ function AdvertisingSubmit() {
               </tbody>
             </table>
 
-            <button className="w-full p-2 rounded-md bg-sky-600 hover:bg-sky-700 font-bold mb-2" onClick={handleModalClose}>Submit</button>
+            <div className="px-2">
+              <button className="w-full p-2 rounded-md bg-sky-600 hover:bg-sky-700 font-bold mb-2" onClick={handleModalClose}>Submit</button>
 
-            <PDFDownloadLink
-              document={<PdfVanilla result={result.result} />}
-              fileName="KKPR.pdf"
-            >
-              {({ blob, url, loading, error }) =>
-                loading ? "Loading document..." : <button className="w-full p-2 rounded-md bg-red-600 hover:bg-red-700 font-bold ">Cetak Formulir</button>
-              }
-            </PDFDownloadLink>
+              <PDFDownloadLink
+                document={<PdfVanilla result={result.result} />}
+                fileName="KKPR.pdf"
+              >
+                {({ blob, url, loading, error }) =>
+                  loading ? "Loading document..." : <button className="w-full p-2 rounded-md bg-red-600 hover:bg-red-700 font-bold">Cetak Formulir</button>
+                }
+              </PDFDownloadLink>
+            </div>
           </main>
 
-          {/* <footer className="sticky bottom-0 py-2 w-full"></footer> */}
+          <footer className="sticky bottom-0 py-2 w-full"></footer>
         </div>
       </Modal>
     </ApplicationResult>

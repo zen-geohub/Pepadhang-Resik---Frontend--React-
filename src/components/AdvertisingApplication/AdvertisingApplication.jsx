@@ -12,6 +12,7 @@ function AdvertisingApplication() {
     <SubmitContext.Provider value={{ isSubmit, setIsSubmit }}>
       <ApplicationResult>
         {isSubmit ? <AdvertisingSubmit /> : <AdvertisingForm />}
+        {/* <AdvertisingSubmit /> */}
       </ApplicationResult>
     </SubmitContext.Provider>
   );

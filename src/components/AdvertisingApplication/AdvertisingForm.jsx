@@ -7,6 +7,9 @@ import { HiX } from "react-icons/hi";
 import { ModalContext } from "../Sidebar";
 import { SubmitContext } from "./AdvertisingApplication";
 import DokumenPersyaratan from "./FormData/DokumenPersyaratan";
+import { PDFViewer } from "@react-pdf/renderer";
+import PdfVanilla from "./PDF/template/PdfVanilla";
+import { ResultContext } from "../Context/ApplicationResult";
 
 export function SelectOption({ option, callback }) {
   return (
@@ -35,6 +38,7 @@ export function SelectOption({ option, callback }) {
 function AdvertisingForm() {
   const modal = useContext(ModalContext);
   const submit = useContext(SubmitContext);
+  const result = useContext(ResultContext)
 
   function handleModalClose() {
     modal.setShowModalApplication(false);
@@ -47,7 +51,7 @@ function AdvertisingForm() {
 
   return (
     <Modal>
-      <div className="w-1/2 h-5/6 bg-white rounded-lg px-2 overflow-auto">
+      <div className="w-1/2 min-h-fit max-h-[500px] bg-white rounded-lg px-2 overflow-auto">
         <header className="sticky top-0 z-20 py-2 w-full flex justify-center text-lg font-bold bg-white">
           <span>Formulir Permohonan Reklame</span>
           <button onClick={handleModalClose} className="absolute right-0">
@@ -55,7 +59,7 @@ function AdvertisingForm() {
           </button>
         </header>
 
-        <form onSubmit={handleSubmit}>
+        <form className="h-[400px] overflow-auto" onSubmit={handleSubmit}>
           <DataPemohon />
           <KeteranganLokasi />
           <SpesifikasiReklame />

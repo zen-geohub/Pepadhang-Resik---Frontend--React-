@@ -28,12 +28,12 @@ function Guide() {
           <tr className="border-sky-50 border hover:bg-sky-100">
             <td className="text-justify select-none">Peraturan Walikota Yogyakarta No. 32 Tahun 2023 tentang Peraturan Pelaksanaan Peraturan Daerah Kota Yogyakarta Nomor 6 Tahun 2022 tentang Reklame</td>
             <td className="text-center select-none">6.8 Mb</td>
-            <td className="flex justify-center py-4 text-xl"><a  href="/src/assets/pdf/Perwal No 32 Tahun 2023.pdf" target="_blank"><HiDownload /></a></td>
+            <td className="flex justify-center py-4 text-xl"><a  href="https://drive.google.com/file/d/1wekPpRCNZju8g4ugmhwhaY5VTqVgK-9N/view?usp=drive_link" target="_blank"><HiEye /></a></td>
           </tr>
           <tr className="border-sky-50 border hover:bg-sky-100">
             <td className="text-justify select-none">Contoh Kesesuaian Kegiatan Pemanfaatan Ruang Reklame</td>
             <td className="text-center select-none">1.4 Mb</td>
-            <td className="flex justify-center py-4 text-xl"><a href="/src/assets/pdf/KKPR Reklame.pdf" target="_blank"><HiDownload /></a></td>
+            <td className="flex justify-center py-4 text-xl"><a href="https://drive.google.com/file/d/1RRKqTBUSLwd3vt-ghBz4aDmOjjyOHRv9/view?usp=drive_link" target="_blank"><HiEye /></a></td>
           </tr>
           <tr className="border-sky-50 border hover:bg-sky-100">
             <td className="text-justify select-none">Panduan Teknis Penggunaan Aplikasi</td>
