@@ -21,7 +21,7 @@ export const reklamePointLayer = {
       'case',
       ['boolean', ['feature-state', 'click'], false],
       2,
-      0.5
+      0.3
     ],
     'circle-radius': {
       'property': 'ukuran',
@@ -36,8 +36,8 @@ export const reklamePointLayer = {
       'property': 'ukuran',
       'type': 'categorical',
       'stops': [
-        ['Sedang', '#60C3E0'],
-        ['Besar', '#105E8C'],
+        ['Sedang', '#204AD4'],
+        ['Besar', '#CC2929'],
         // ['', 'green']
       ]
     }

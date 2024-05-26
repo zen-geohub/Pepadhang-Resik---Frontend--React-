@@ -37,8 +37,8 @@ function Guide() {
           </tr>
           <tr className="border-sky-50 border hover:bg-sky-100">
             <td className="text-justify select-none">Panduan Teknis Penggunaan Aplikasi</td>
-            <td className="text-center select-none">-</td>
-            <td className="flex justify-center py-4 text-xl"><a href="https://drive.google.com/drive/folders/1lGjxC7qE83MCABPcui7z5JkGlcGKsICI?usp=sharing" target="_blank"><HiEye /></a></td>
+            <td className="text-center select-none">3.9 Mb</td>
+            <td className="flex justify-center py-4 text-xl"><a href="https://drive.google.com/file/d/1RcdPutyemnfXK5Pha4NntX9yQ1C9rOkF/view?usp=drive_link" target="_blank"><HiEye /></a></td>
           </tr>
         </table>
       </div>
