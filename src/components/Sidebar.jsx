@@ -8,6 +8,7 @@ import {
 import AdvertisingApplication from "./AdvertisingApplication/AdvertisingApplication";
 import { mapContext } from "./Context/MapContext";
 import Guide from "./Guide";
+import { Link } from "react-router-dom";
 
 export const ModalContext = React.createContext();
 
@@ -32,12 +33,18 @@ function Sidebar() {
     <>
       <aside className="flex flex-col justify-between z-20 p-2 bg-primary-color h-screen w-fit text-white">
         <div className="flex flex-col gap-4">
-          <a href="https://gatramatra.jogjakota.go.id/" className="btn-sidebar">
+          {/* <a href="https://gatramatra.jogjakota.go.id/" className="btn-sidebar">
             <span>
               <HiHome className="text-2xl" />
             </span>
             <span>Beranda</span>
-          </a>
+          </a> */}
+          <Link to="/" className="btn-sidebar">
+            <span>
+              <HiHome className="text-2xl" />
+            </span>
+            <span>Beranda</span>
+          </Link>
 
           <button onClick={handleFilterClick} className={filter.showFilter ? "btn-sidebar-active" : "btn-sidebar"}>
             <span>
